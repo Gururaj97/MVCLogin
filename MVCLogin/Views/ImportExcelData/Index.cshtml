@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+    </style>
+    @*<link href="~/File/Site.css" rel="stylesheet" />*@
+<link href="~/Some/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Import", "ImportExcelData", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.Raw(ViewBag.Error)
+            <span>Excel File</span><input type="file" name="excelfile" />
+            <br />
+            <input type="submit" value="Import" />
+        }
+    </div>
+</body>
+</html>

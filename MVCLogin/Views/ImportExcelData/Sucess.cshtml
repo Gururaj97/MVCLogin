@@ -1,0 +1,31 @@
+﻿@model MVCLogin.Models.Table
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sucess</title>
+</head>
+<body>
+    <h3>List Usrs</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>SNo</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        @foreach (var p in ViewBag.Listproducts)
+        {
+            <tr>
+                <td>@p.SNo</td>
+                <td>@p.Name</td>
+                <td>@p.Age</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

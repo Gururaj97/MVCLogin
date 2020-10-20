@@ -1,0 +1,125 @@
+﻿@model MVCLogin.Models.Table
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            /*border: 1px solid #ccc;
+            padding: 10px 10px;*/
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+    <link href="~/Some/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">Login</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.UserName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.UserName)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.PassWord)</td>
+                    <td>@Html.EditorFor(model => model.PassWord)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.PassWord)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+
+                    <td>
+                        <input type="submit" name="name" value="Login" />
+                        <input type="reset" name="name" value="Clear" />
+                        <a href="@Url.Action("Index","ImportExcelData")">ToInserExcelsheet</a>
+                        @*<input type="url" name="name" value="ToinsertExcelSheet" />*@
+
+                    </td>
+                </tr>
+                @*<tr>
+                        <td></td>
+                        <td style="text-decoration:underline"> OR </td>
+                    </tr>*@
+                @*<tr>
+                        <td></td>
+                        <td>Before Login Check Details is their in databse</td>
+                    </tr>*@
+                @*<tr>
+                            <td>
+                                <div>
+                                    @using (Html.BeginForm("Import", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                                    @Html.Raw(ViewBag.Error)
+                                    <span>Excel File</span><input type="file" name="excelfile" />
+                                    <br />
+                                    <input type="submit" value="Import" />
+                                    }
+                                </div>
+                            </td>
+                        </tr>*@
+            </table>
+        }
+    </div>
+
+
+    @*<div>
+            <style>
+                #import-div {
+                    position: absolute;
+                    left: 60%;
+                    top: 40%;
+                    /*border: 1px solid #ccc;*/
+                    padding: 10px 10px;
+                }
+
+                .field-validation-error {
+                    color: red;
+                }
+            </style>
+            @using (Html.BeginForm("Import", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+            }
+        </div>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js">
+    </script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</body>
+
+</html>
